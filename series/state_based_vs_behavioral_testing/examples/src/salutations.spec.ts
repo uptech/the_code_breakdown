@@ -56,9 +56,9 @@ describe('Salutations', () => {
     })
 
     describe('classical/state based', () => {
-      describe('classical/state based w/ Spy', () => {
+      describe('classical/state based w/ spy', () => {
         describe('when given user with name Bob', () => {
-          // State Based Test w/Spy
+          // State Based Test w/ spy
           it('sends the greeting email & returns a greeting for Bob', () => {
             const mailer = new Mailer()
             const spyMailer = jest.spyOn(mailer, 'send').mockReturnValue(undefined)
@@ -75,7 +75,7 @@ describe('Salutations', () => {
 
       describe('classical/state based w/ classic fake', () => {
         describe('when given user with name Cindy', () => {
-          // State Based Test w/Classic Fake
+          // State Based Test w/ classic fake
           it('sends the greeting email & returns a greeting for Cindy', () => {
             class FakeMailer implements IMailer {
               messages: Array<string>
@@ -102,7 +102,7 @@ describe('Salutations', () => {
 
       describe('classical/state based w/ mocking effectful collaborator', () => {
         describe('when given user with name James', () => {
-          // State Based Test w/Classic Fake
+          // State Based Test w/ mocking effectful collaborator
           it('sends the greeting email & returns a greeting for James', () => {
             const mockMailer = {
               send: jest.fn()
