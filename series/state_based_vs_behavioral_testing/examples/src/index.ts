@@ -1,0 +1,1 @@
+export { Salutations } from './salutations'
