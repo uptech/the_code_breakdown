@@ -27,8 +27,8 @@ It seems like the strategy will also need to be
 
 | Characteristic (& videos)       | State Based | Behavioral (using mock objs)        | Behavioral (mocking methods on real objs) |
 | ------------------------------- | ----------- | ----------------------------------- | ------------------------------------------|
-| [Gain Confidence to Refactor][] | **does**    | **does NOT** & **creates overhead** | **does NOT** & **creates overhead**       |
-| [Test Internal Collaboration][] | **only** for effectful collaborators | **does** for all collaborators | **does** for all collaborators |
+| [Gain Confidence to Refactor][] | **does**    | **does NOT** & **creates overhead** | ?       |
+| [Test Internal Collaboration][] | **only** for effectful collaborators | **does** for all collaborators | ? |
 | Test External Behavior          | ?           | ?                                   | ?                                         |
 | Provide Documentation           | ?           | ?                                   | ?                                         |
 | Drive Better Design             | ?           | ?                                   | ?                                         |
