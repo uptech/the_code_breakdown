@@ -37,3 +37,4 @@ It seems like the strategy will also need to be
 
 
 [Gain Confidence to Refactor]: https://youtu.be/DF7y2DA3YIY
+[Test Internal Collaboration]: https://youtu.be/jEgkG2oCZaI
