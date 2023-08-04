@@ -1,3 +1,4 @@
+import { mock } from 'jest-mock-extended'
 import { Greeter } from './greeter'
 import { Salutations } from './salutations'
 import { IMailer, Mailer } from './mailer'
@@ -5,53 +6,99 @@ import { IMailer, Mailer } from './mailer'
 describe('Salutations', () => {
   describe('#arrival', () => {
     describe('mockist/behavioral', () => {
-      // Behavioral Test
-      it('collaborates with the Greeters hello method', () => {
-        let mockGreeter = {
-          hello: jest.fn().mockReturnValue('something someUsername')
-        }
+      describe('mockist/behavioral mock objects', () => {
+        // Behavioral Test
+        it('collaborates with the Greeters hello method', () => {
+          let mockGreeter = {
+            hello: jest.fn().mockReturnValue('something someUsername')
+          }
 
-        let mockMailer = {
-          send: jest.fn()
-        }
+          let mockMailer = {
+            send: jest.fn()
+          }
 
-        const salutations = new Salutations(mockGreeter, mockMailer)
-        salutations.arrival('hoopty')
+          const salutations = new Salutations(mockGreeter, mockMailer)
+          salutations.arrival('hoopty')
 
-        expect(mockGreeter.hello).toHaveBeenCalledWith({ name: 'hoopty' })
+          expect(mockGreeter.hello).toHaveBeenCalledWith({ name: 'hoopty' })
+        })
+
+        // Behavioral Test
+        it('collaborates with the Mailers send method', () => {
+          let mockGreeter = {
+            hello: jest.fn().mockReturnValue('something someUsername')
+          }
+
+          let mockMailer = {
+            send: jest.fn()
+          }
+
+          const salutations = new Salutations(mockGreeter, mockMailer)
+          salutations.arrival('hoopty')
+
+          expect(mockMailer.send).toHaveBeenCalledWith('something someUsername')
+        })
+
+        // State-based/Classical assertion but used to verify that the return value of the Greater.hello method is returned from the arrival() method.
+        // This is technically a State-based test from an assertion standpoint but a Behavioral test from the standpoint of the intention of the test. 
+        it('returns the result of the greeter hello method', () => {
+          let stubGreeter = {
+            hello: jest.fn().mockReturnValue('something someUsername')
+          }
+
+          let stubMailer = {
+            send: jest.fn()
+          }
+
+          const salutations = new Salutations(stubGreeter, stubMailer)
+          const message = salutations.arrival('hoopty')
+
+          expect(message).toEqual('something someUsername')
+        })
       })
+    })
 
-      // Behavioral Test
-      it('collaborates with the Mailers send method', () => {
-        let mockGreeter = {
-          hello: jest.fn().mockReturnValue('something someUsername')
-        }
+    describe('mockist/behavioral', () => {
+      describe('mockist/behavioral mock real objects', () => {
+        // Behavioral Test
+        it('collaborates with the Greeters hello method', () => {
+          const mockGreeter = mock<Greeter>()
+          mockGreeter.hello.mockReturnValue('something someUsername')
 
-        let mockMailer = {
-          send: jest.fn()
-        }
+          const mockMailer = mock<Mailer>()
 
-        const salutations = new Salutations(mockGreeter, mockMailer)
-        salutations.arrival('hoopty')
+          const salutations = new Salutations(mockGreeter, mockMailer)
+          salutations.arrival('hoopty')
 
-        expect(mockMailer.send).toHaveBeenCalledWith('something someUsername')
-      })
+          expect(mockGreeter.hello).toHaveBeenCalledWith({ name: 'hoopty' })
+        })
 
-      // State-based/Classical assertion but used to verify that the return value of the Greater.hello method is returned from the arrival() method.
-      // This is technically a State-based test from an assertion standpoint but a Behavioral test from the standpoint of the intention of the test. 
-      it('returns the result of the greeter hello method', () => {
-        let stubGreeter = {
-          hello: jest.fn().mockReturnValue('something someUsername')
-        }
+        // Behavioral Test
+        it('collaborates with the Mailers send method', () => {
+          const mockGreeter = mock<Greeter>()
+          mockGreeter.hello.mockReturnValue('something someUsername')
 
-        let stubMailer = {
-          send: jest.fn()
-        }
+          const mockMailer = mock<Mailer>()
 
-        const salutations = new Salutations(stubGreeter, stubMailer)
-        const message = salutations.arrival('hoopty')
+          const salutations = new Salutations(mockGreeter, mockMailer)
+          salutations.arrival('hoopty')
 
-        expect(message).toEqual('something someUsername')
+          expect(mockMailer.send).toHaveBeenCalledWith('something someUsername')
+        })
+
+        // State-based/Classical assertion but used to verify that the return value of the Greater.hello method is returned from the arrival() method.
+        // This is technically a State-based test from an assertion standpoint but a Behavioral test from the standpoint of the intention of the test. 
+        it('returns the result of the greeter hello method', () => {
+          const stubGreeter = mock<Greeter>()
+          stubGreeter.hello.mockReturnValue('something someUsername')
+
+          const stubMailer = mock<Mailer>()
+
+          const salutations = new Salutations(stubGreeter, stubMailer)
+          const message = salutations.arrival('hoopty')
+
+          expect(message).toEqual('something someUsername')
+        })
       })
     })
 
