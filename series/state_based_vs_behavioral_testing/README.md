@@ -1,9 +1,8 @@
 # Topics to Cover in this Series
 
 * [x] Gain Confidence to Refactor
-* [ ] Make sure the code works correctly
-	* [ ] External Behavior
-	* [ ] Internal Collaboration (a.k.a. Lock down collaboration)
+* [x] Test Internal Collaboration
+* [ ] Test External Behavior (blackbox testing)
 * [ ] Provide Documentation
 	* documents the usage of the object/method under test vs documents collaboration portion of the implementation
 * [ ] Drive Better Design
@@ -14,7 +13,8 @@
 * [ ] Differences between Mockist testing with Mock objects vs Real objects (theory that Mockist testing with real objects provides verification of connectivity between real objects)
 	* do you lose emergent design ability by using real objects?
 	* do you gain confidence that your collaborators are actually integrating between real objects not mocks? and is that confidence a result of the type system or the test? or both?
-
+* [ ] Test Isolation
+* [ ] Coupling Tests to Implementation
 
 It seems like the strategy will also need to be
 
@@ -23,3 +23,17 @@ It seems like the strategy will also need to be
 3. decide which values you (your organization) cares about
 4. develop a testing strategy based on those values
 5. come up with examples of how to write test for these different types
+
+
+| Characteristic (& videos)       | State Based | Behavioral (using mock objs)        | Behavioral (mocking methods on real objs) |
+| ------------------------------- | ----------- | ----------------------------------- | ------------------------------------------|
+| [Gain Confidence to Refactor][] | **does**    | **does NOT** & **creates overhead** | **does NOT** & **creates overhead**       |
+| [Test Internal Collaboration][] | **only** for effectful collaborators | **does** for all collaborators | **does** for all collaborators |
+| Test External Behavior          | ?           | ?                                   | ?                                         |
+| Provide Documentation           | ?           | ?                                   | ?                                         |
+| Drive Better Design             | ?           | ?                                   | ?                                         |
+| Behavioral Tests Stand Alone?   | ?           | ?                                   | ?                                         |
+
+
+
+[Gain Confidence to Refactor]: https://youtu.be/DF7y2DA3YIY
