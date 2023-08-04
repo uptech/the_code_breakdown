@@ -67,8 +67,8 @@ describe('Salutations', () => {
             const salutations = new Salutations(greeter, mailer)
             const message = salutations.arrival('Bob')
 
-            expect(spyMailer).toHaveBeenCalledWith('Hello Bob')
             expect(message).toEqual('Hello Bob')
+            expect(spyMailer).toHaveBeenCalledWith('Hello Bob')
           })
         })
       })
@@ -112,8 +112,8 @@ describe('Salutations', () => {
             const salutations = new Salutations(greeter, mockMailer)
             const message = salutations.arrival('James')
 
-            expect(mockMailer.send).toHaveBeenCalledWith('Hello James')
             expect(message).toEqual('Hello James')
+            expect(mockMailer.send).toHaveBeenCalledWith('Hello James')
           })
         })
       })
