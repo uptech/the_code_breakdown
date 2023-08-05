@@ -14,6 +14,11 @@ My rough plan for doing this is as follows.
 4. develop a testing strategy based on those values
 5. come up with examples of how to write test for these different types
 
+## Background Knowledge
+
+- TODO: [Behavioral/Mockist Tests & How they Work][]
+- TODO: [State Based/Classical Tests & How they Work][]
+
 ## Characteristics Breakdown
 
 The following is a table breaking down the characteristics and the respective
